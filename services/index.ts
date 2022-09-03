@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { getCrypotListResponse } from "./types";
 
 const api = createApi({
   reducerPath: "api",
@@ -14,6 +15,7 @@ const api = createApi({
           "x-rapidapi-key": `${process.env.NEXT_PUBLIC_COIN_MARKET_API_KEY}`,
         },
       }),
+      transformResponse: (res: getCrypotListResponse) => res.data,
     }),
   }),
 });
